@@ -68,6 +68,9 @@ figcaption{font-size:14px;color:var(--muted);margin-top:8px;text-align:center}
 .log h3{margin:0;font-size:18px}
 .log time,.log .tag{font-size:13px;color:var(--muted)}
 .log ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.chips li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--muted);font-size:14px;line-height:1.45}
+.chips b{display:block;color:var(--text);font-size:15px;margin-bottom:2px}
 .dl{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}
 @media (max-width:760px){.dl{grid-template-columns:1fr}}
 .dl ol{color:var(--muted);padding-left:20px}
@@ -85,6 +88,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </a>
     <nav>
       <a href="#features">Features</a>
+      <a href="#more">More</a>
       <a href="#store">Store</a>
       <a href="#screenshots">Screenshots</a>
       <a href="#changelog">Changelog</a>
@@ -112,7 +116,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="grid">
       <div class="card"><div class="icon">🎨</div><h3>Themes and Theme Studio</h3><p>Pick a theme, or design your own with live preview: every color, tab shape, corner and font. Share it as a file anyone can import.</p></div>
       <div class="card"><div class="icon">🌌</div><h3>A start page that's yours</h3><p>Your own photo, 4K video, WebM or animated GIF as the wallpaper, even Wallpaper Engine video folders. Add a clock, to-do list, calendar, world clocks and notes.</p></div>
-      <div class="card"><div class="icon">🗂️</div><h3>Tabs your way</h3><p>Tabs on top or down either side, collapsible to a slim column of icons that slides open on hover. Pin, group by color, drag between windows.</p></div>
+      <div class="card"><div class="icon">🗂️</div><h3>Tabs your way</h3><p>Tabs on top, on the bottom or down either side. Collapse them to icons or hide them until you reach the edge. Split view, workspaces, hover previews.</p></div>
       <div class="card"><div class="icon">📌</div><h3>Side panel</h3><p>Bookmarks, history, a reading list, downloads, notes, or any website kept open beside the page you're reading.</p></div>
       <div class="card"><div class="icon">🛡️</div><h3>Private by default</h3><p>Ads and trackers are blocked, sites load securely, and private windows forget everything when you close them.</p></div>
       <div class="card"><div class="icon">⌘</div><h3>Command palette</h3><p>Press ⌘K to search every command, open tab and setting at once. Type “tabs left” or “theme midnight” and it just happens.</p></div>
@@ -124,17 +128,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="stat"><b>1.6 ms</b><span>to switch tabs</span></div>
       <div class="stat"><b>~30 ms</b><span>for a setting to apply</span></div>
       <div class="stat"><b>2 ms</b><span>to search the palette</span></div>
-      <div class="stat"><b>0</b><span>third-party dependencies</span></div>
+      <div class="stat"><b>218</b><span>automated tests, plus a full bug sweep</span></div>
     </div>
   </div>
 </section>
 
-<section id="store">
+<section id="more">
+  <div class="wrap">
+    <h2>Even more ways to make it yours</h2>
+    <p class="sub">New in 1.2. Every one of these is in Customize Look, the Settings window and the command palette.</p>
+    <ul class="chips">
+      <li><b>Workspaces</b> Separate tab sets, each with a name, emoji and theme</li>
+      <li><b>Split view</b> Two tabs side by side</li>
+      <li><b>Hidden side tabs</b> Tabs slide out when you reach the window edge</li>
+      <li><b>Tabs on the bottom</b> Or top, left or right</li>
+      <li><b>Mouse gestures</b> Draw to go back, close or reload, and reassign any stroke</li>
+      <li><b>Boosts</b> Your own CSS and JavaScript for any site</li>
+      <li><b>Command chains</b> Many actions on one shortcut, like a “Focus mode”</li>
+      <li><b>Day and night themes</b> Switch theme automatically by time of day</li>
+      <li><b>Accent from wallpaper</b> Colors that follow your wallpaper</li>
+      <li><b>UI sounds</b> Soft, glass, retro or mechanical sound packs</li>
+      <li><b>Reader view</b> Just the article, in your font, colors, size and width</li>
+      <li><b>Tab previews</b> Rest on a tab to see its page</li>
+      <li><b>Tab limiter</b> Keep only the tabs you choose in memory</li>
+      <li><b>Zoom per site</b> Plus a default zoom for every page</li>
+      <li><b>Mute tabs</b> And mute every other tab at once</li>
+      <li><b>Page screenshots</b> Saved to Downloads and copied in one step</li>
+      <li><b>Link previews</b> See where a link goes before you click</li>
+      <li><b>Your launch</b> Last session, the start page or your own list of pages</li>
+    </ul>
+  </div>
+</section>
+
+<section id="store" class="soft">
   <div class="wrap">
     <h2>The Aster Store</h2>
-    <p class="sub">Nearly 300 free add-ons, built right in. One click to try, one click to remove. No account, and it works offline.</p>
+    <p class="sub">Nearly 600 free add-ons, built right in. One click to try, one click to remove. No account, and it works offline.</p>
     <div class="stats">
-      <div class="stat"><b>148</b><span>themes, including fan-made ones</span></div>
+      <div class="stat"><b>437</b><span>themes: sports, racing, games, code editors and moods</span></div>
       <div class="stat"><b>52</b><span>wallpapers, animated and still</span></div>
       <div class="stat"><b>32</b><span>complete Looks</span></div>
       <div class="stat"><b>30</b><span>site mods like Night Mode</span></div>
@@ -143,7 +174,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<section id="screenshots" class="soft">
+<section id="screenshots">
   <div class="wrap">
     <h2>Screenshots</h2>
     <p class="sub">A look at Aster.</p>
@@ -157,12 +188,25 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<section id="changelog">
+<section id="changelog" class="soft">
   <div class="wrap">
     <h2>Changelog</h2>
     <p class="sub">What's new in each version.</p>
     <ol class="log">
       <!-- NEW RELEASES GO HERE, newest first. Copy one <li> block and edit it. -->
+      <li>
+        <h3>Version 1.2</h3>
+        <time datetime="2026-11-22">November 22, 2026</time>
+        <ul>
+          <li>437 themes in the Store: every major pro sports team, soccer clubs, national teams, racing, many more games, 36 code-editor color schemes and 40 nature, season, retro and OLED moods. Fan themes are unofficial, with no logos.</li>
+          <li>Workspaces, split view, tabs on the bottom and side tabs that hide completely.</li>
+          <li>Mouse gestures, Boosts (your own CSS and JavaScript per site) and command chains.</li>
+          <li>Day and night themes, accent color from your wallpaper, and UI sound packs.</li>
+          <li>Reader view, tab hover previews, a tab limiter, link previews, zoom per site, muting tabs and page screenshots.</li>
+          <li>Choose what opens when Aster starts.</li>
+          <li>A new automatic bug sweep tests every command, 96 layouts, every theme and 400 random settings changes. 218 unit tests and 118 in-app checks pass.</li>
+        </ul>
+      </li>
       <li>
         <h3>Version 1.1</h3>
         <time datetime="2026-11-22">November 22, 2026</time>
@@ -249,7 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<section id="download" class="soft">
+<section id="download">
   <div class="wrap dl">
     <div>
       <h2>Download</h2>
