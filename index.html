@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster: a Mac browser you shape yourself</title>
+<meta name="description" content="Aster is a fast, native macOS browser built on WebKit. Themes, shortcuts, toolbar and tabs are all yours to change, and every change applies instantly.">
+<meta name="theme-color" content="#0f1222">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f4f5fa;--text:#151829;--muted:#5a5f78;--line:#e3e5ef;
+  --accent:#5b5bf0;--accent-2:#2ec4b6;--card:#ffffff;--shadow:0 1px 2px rgba(20,24,60,.06),0 8px 24px rgba(20,24,60,.06);
+  --radius:14px;--max:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1222;--bg-soft:#161a30;--text:#eceefa;--muted:#a3a8c3;--line:#262b48;--card:#161a30;
+  --accent:#8b8bff;--accent-2:#3fd8c9;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:saturate(1.6) blur(12px);-webkit-backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+.brand svg{width:26px;height:26px}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:15px}
+nav a:hover{color:var(--text)}
+@media (max-width:640px){nav a:not(.cta-small){display:none}}
+.cta-small{background:var(--accent);color:#fff!important;padding:6px 14px;border-radius:999px}
+.hero{padding:88px 0 56px;text-align:center}
+.pill{display:inline-block;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:22px}
+h1{font-size:clamp(36px,6vw,62px);line-height:1.05;letter-spacing:-.03em;margin:0 0 18px}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:640px;margin:0 auto 32px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--card)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn[aria-disabled=true]{opacity:.55;pointer-events:none}
+.small{font-size:13px;color:var(--muted);margin-top:14px}
+section{scroll-margin-top:58px;padding:64px 0;border-top:1px solid var(--line)}
+section.soft{background:var(--bg-soft)}
+h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 36px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:10px 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-size:19px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:8px}
+.stat{text-align:center;padding:18px}
+.stat b{display:block;font-size:30px;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.shot{aspect-ratio:16/10;border-radius:var(--radius);border:1px dashed var(--line);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--card)),color-mix(in srgb,var(--accent-2) 10%,var(--card)));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);font-size:14px;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot:has(img){border-style:solid;background:#111}
+.shot .bar{width:70%;height:10px;border-radius:6px;background:var(--line);margin-bottom:10px}
+figure{margin:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;text-align:center}
+.log{list-style:none;padding:0;margin:0;max-width:760px}
+.log>li{position:relative;padding:0 0 30px 28px;border-left:2px solid var(--line);margin-left:6px}
+.log>li:last-child{border-left-color:transparent}
+.log>li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.log>li.planned::before{background:var(--line)}
+.log h3{margin:0;font-size:18px}
+.log time,.log .tag{font-size:13px;color:var(--muted)}
+.log ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+.dl{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.dl{grid-template-columns:1fr}}
+.dl ol{color:var(--muted);padding-left:20px}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg-soft);border:1px solid var(--line);padding:1px 6px;border-radius:6px}
+footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf0"/><stop offset="1" stop-color="#2ec4b6"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M16 6l2.6 6.6L25 16l-6.4 3.4L16 26l-2.6-6.6L7 16l6.4-3.4z" fill="#fff"/></svg>
+      Aster
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#store">Store</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#changelog">Changelog</a>
+      <a class="cta-small" href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero wrap">
+  <div class="pill">For macOS 14 and later · Apple silicon and Intel</div>
+  <h1>The Mac browser<br><span>you shape yourself.</span></h1>
+  <p class="lead">Aster is a fast, native browser built on WebKit. Themes, wallpapers, your start page, tabs, toolbar and shortcuts are all yours to change, and every change applies the moment you make it.</p>
+  <div class="btns">
+    <a class="btn primary" href="#download">Download Aster</a>
+    <a class="btn" href="#features">See what it does</a>
+  </div>
+  <p class="small">Free. No account. Blocks trackers by default.</p>
+</div>
+
+<section id="features" class="soft">
+  <div class="wrap">
+    <h2>Make it yours, instantly</h2>
+    <p class="sub">Nearly everything in Aster can be changed, and nothing needs a restart. Most changes show up in under a tenth of a second.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">🎨</div><h3>Themes and Theme Studio</h3><p>Pick a theme, or design your own with live preview: every color, tab shape, corner and font. Share it as a file anyone can import.</p></div>
+      <div class="card"><div class="icon">🌌</div><h3>A start page that's yours</h3><p>Your own photo, 4K video, WebM or animated GIF as the wallpaper, even Wallpaper Engine video folders. Add a clock, to-do list, calendar, world clocks and notes.</p></div>
+      <div class="card"><div class="icon">🗂️</div><h3>Tabs your way</h3><p>Tabs on top or down either side, collapsible to a slim column of icons that slides open on hover. Pin, group by color, drag between windows.</p></div>
+      <div class="card"><div class="icon">📌</div><h3>Side panel</h3><p>Bookmarks, history, a reading list, downloads, notes, or any website kept open beside the page you're reading.</p></div>
+      <div class="card"><div class="icon">🛡️</div><h3>Private by default</h3><p>Ads and trackers are blocked, sites load securely, and private windows forget everything when you close them.</p></div>
+      <div class="card"><div class="icon">⌘</div><h3>Command palette</h3><p>Press ⌘K to search every command, open tab and setting at once. Type “tabs left” or “theme midnight” and it just happens.</p></div>
+      <div class="card"><div class="icon">⌨️</div><h3>Your shortcuts</h3><p>Rebind any shortcut, give a command two, or use key sequences. Safari and Chrome presets, plus optional Vim-style keys.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>Your layout</h3><p>Rearrange the toolbar, switch to compact mode, or float the page with rounded corners. Every option is in one simple Settings window.</p></div>
+      <div class="card"><div class="icon">↩️</div><h3>Never lose a tab</h3><p>Reopen closed tabs and windows right where they were. Your whole session comes back after a restart, even your scroll position.</p></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>1.6 ms</b><span>to switch tabs</span></div>
+      <div class="stat"><b>~30 ms</b><span>for a setting to apply</span></div>
+      <div class="stat"><b>2 ms</b><span>to search the palette</span></div>
+      <div class="stat"><b>0</b><span>third-party dependencies</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="store">
+  <div class="wrap">
+    <h2>The Aster Store</h2>
+    <p class="sub">Nearly 300 free add-ons, built right in. One click to try, one click to remove. No account, and it works offline.</p>
+    <div class="stats">
+      <div class="stat"><b>148</b><span>themes, including fan-made ones</span></div>
+      <div class="stat"><b>52</b><span>wallpapers, animated and still</span></div>
+      <div class="stat"><b>32</b><span>complete Looks</span></div>
+      <div class="stat"><b>30</b><span>site mods like Night Mode</span></div>
+      <div class="stat"><b>37</b><span>search engines</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots" class="soft">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <p class="sub">A look at Aster.</p>
+    <div class="shots">
+      <!-- To add a real screenshot: put the image in the images folder and replace the placeholder div with
+           <img src="images/light.png" alt="Aster in the Light theme" loading="lazy"> -->
+      <figure><div class="shot"><img src="images/start-page.jpg" alt="Aster start page with to-do list and world clocks, and the side panel showing notes" loading="lazy" style="object-position:left top"></div><figcaption>Start page widgets and the side panel</figcaption></figure>
+      <figure><div class="shot"><img src="images/store.jpg" alt="The Aster Store showing the featured Outrun look" loading="lazy" style="object-position:top"></div><figcaption>The Aster Store</figcaption></figure>
+      <figure><div class="shot"><img src="images/palette.jpg" alt="The Aster command palette searching for tab settings" loading="lazy" style="object-fit:cover;object-position:top"></div><figcaption>Command palette</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="changelog">
+  <div class="wrap">
+    <h2>Changelog</h2>
+    <p class="sub">What's new in each version.</p>
+    <ol class="log">
+      <!-- NEW RELEASES GO HERE, newest first. Copy one <li> block and edit it. -->
+      <li>
+        <h3>Version 1.1</h3>
+        <time datetime="2026-11-22">November 22, 2026</time>
+        <ul>
+          <li>Wallpapers play sharp at full resolution, 4K included.</li>
+          <li>WebM videos and animated GIF, WebP and APNG pictures work as wallpapers.</li>
+          <li>Wallpaper Engine video folders can be used as wallpapers.</li>
+          <li>Side tabs collapse to a slim column of icons and slide open on hover (⌥⌘S).</li>
+          <li>Clear messages when a wallpaper file can't be played, saying why.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Version 1.0</h3>
+        <time datetime="2026-11-22">November 22, 2026</time>
+        <ul>
+          <li>The Aster Store: 299 themes, wallpapers, Looks, site mods and search engines.</li>
+          <li>Theme Studio for designing and sharing your own themes.</li>
+          <li>Side panel with bookmarks, history, reading list, notes and web panels.</li>
+          <li>Compact mode, floating page and many new tab options.</li>
+          <li>New start page widgets: to-do list, calendar, world clocks and quote of the day.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.7: Start page and Library</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Customizable start page with photo, video and animated wallpapers.</li>
+          <li>Downloads, bookmarks with import and export, and a Library window.</li>
+          <li>A Settings window with every option and search.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.6: Speed</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Unused tabs sleep to free memory and wake instantly.</li>
+          <li>New tabs open in under 20 ms, plus a Task Manager.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.5: Privacy</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Ad and tracker blocking with a per-site shield.</li>
+          <li>HTTPS-Only mode, private windows and clearing site data on quit.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.4: Address bar</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Smart completion and suggestions from your history, tabs and bookmarks.</li>
+          <li>Search keywords, like “yt cats” for YouTube.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.3: Customization</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Five built-in themes, plus your own theme files that apply as you save them.</li>
+          <li>Command palette (⌘K) over commands, tabs and settings.</li>
+          <li>Shortcut editor, key sequences and optional Vim-style keys.</li>
+          <li>Toolbar editor and find in page.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.2: Tabs</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Tabs on top or in a sidebar, pinned tabs and color tab groups.</li>
+          <li>Drag tabs between windows or tear them off.</li>
+          <li>Reopen closed tabs and full session restore.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Preview 0.1: Foundations</h3>
+        <time datetime="2026-11-21">November 21, 2026</time>
+        <ul>
+          <li>Native WebKit browsing with a smart address bar.</li>
+          <li>One settings file that applies changes live.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="download" class="soft">
+  <div class="wrap dl">
+    <div>
+      <h2>Download</h2>
+      <p class="sub">Aster 1.0 is free.</p>
+      <!-- When a release is ready: change the href to the release file's link and remove aria-disabled. -->
+      <a class="btn primary" href="#" aria-disabled="true">Download for Mac (coming soon)</a>
+      <p class="small">Requires macOS 14 Sonoma or later.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Opening Aster the first time</h3>
+      <ol>
+        <li>Open the downloaded file and drag Aster to your Applications folder.</li>
+        <li>The first time, Control-click Aster and choose <b>Open</b>, then <b>Open</b> again. macOS asks this once for apps from outside the App Store.</li>
+        <li>That's it. Your settings live in <code>~/Library/Application Support/Aster</code>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Aster. A personal project.</span>
+    <span><a href="#">Back to top</a></span>
+  </div>
+</footer>
+</body>
+</html>
