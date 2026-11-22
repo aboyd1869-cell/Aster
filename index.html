@@ -99,7 +99,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <main>
 <div class="hero wrap">
-  <div class="pill">For macOS 14 and later · Apple silicon and Intel</div>
+  <div class="pill">Version 1.2 · For Macs with Apple silicon · macOS 14 or later</div>
   <h1>The Mac browser<br><span>you shape yourself.</span></h1>
   <p class="lead">Aster is a fast, native browser built on WebKit. Themes, wallpapers, your start page, tabs, toolbar and shortcuts are all yours to change, and every change applies the moment you make it.</p>
   <div class="btns">
@@ -128,7 +128,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="stat"><b>1.6 ms</b><span>to switch tabs</span></div>
       <div class="stat"><b>~30 ms</b><span>for a setting to apply</span></div>
       <div class="stat"><b>2 ms</b><span>to search the palette</span></div>
-      <div class="stat"><b>223</b><span>automated tests, plus a full bug sweep</span></div>
+      <div class="stat"><b>224</b><span>automated tests, plus a full bug sweep</span></div>
     </div>
   </div>
 </section>
@@ -159,6 +159,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <li><b>Rename tabs</b> Give any tab your own name, with an emoji as its icon</li>
       <li><b>One font everywhere</b> Pick a font for every website, plus a smallest text size</li>
       <li><b>Scroll bar styles</b> Thin, hidden, or thin in your accent color</li>
+      <li><b>Accent on websites</b> Text selection, cursors, checkboxes and sliders in your color</li>
+      <li><b>Calmer websites</b> Smooth scrolling, or switch off site animations</li>
+      <li><b>Tab title size</b> From 9 to 18 points, or the theme’s size</li>
     </ul>
   </div>
 </section>
@@ -166,9 +169,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <section id="store" class="soft">
   <div class="wrap">
     <h2>The Aster Store</h2>
-    <p class="sub">Over 700 free add-ons, built right in. One click to try, one click to remove. No account, and it works offline.</p>
+    <p class="sub">Over 750 free add-ons, built right in. One click to try, one click to remove. No account, and it works offline.</p>
     <div class="stats">
-      <div class="stat"><b>574</b><span>themes: sports, games, cities, holidays, space and more</span></div>
+      <div class="stat"><b>604</b><span>themes: sports, games, cities, holidays, nature and more</span></div>
       <div class="stat"><b>52</b><span>wallpapers, animated and still</span></div>
       <div class="stat"><b>32</b><span>complete Looks</span></div>
       <div class="stat"><b>30</b><span>site mods like Night Mode</span></div>
@@ -201,15 +204,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h3>Version 1.2</h3>
         <time datetime="2026-11-22">November 22, 2026</time>
         <ul>
-          <li>574 themes in the Store: every major pro sports team, soccer clubs, national teams, racing, many more games, 36 code-editor color schemes, nature, season, retro and OLED moods, plus new collections for holidays around the world, cities, space, food and drink, music, oceans, weather, cars, pastels, and easy-to-see high-contrast and colorblind-friendly themes. Fan themes are unofficial, with no logos.</li>
+          <li>604 themes in the Store: every major pro sports team, soccer clubs, national teams, racing, many more games, 36 code-editor color schemes, nature, season, retro and OLED moods, plus new collections for holidays around the world, cities, space, food and drink, music, oceans, weather, cars, pastels, gemstones, flowers, animals, and easy-to-see high-contrast and colorblind-friendly themes. Fan themes are unofficial, with no logos.</li>
           <li>Workspaces, split view, tabs on the bottom and side tabs that hide completely.</li>
           <li>Mouse gestures, Boosts (your own CSS and JavaScript per site) and command chains.</li>
           <li>Day and night themes, accent color from your wallpaper, and UI sound packs.</li>
           <li>Reader view, tab hover previews, a tab limiter, link previews, zoom per site, muting tabs and page screenshots.</li>
           <li>Rename any tab, with an emoji as its icon. Names are kept between launches.</li>
-          <li>One font for every website, a smallest text size, scroll bar styles and your own CSS for the start page.</li>
+          <li>One font for every website, a smallest text size, scroll bar styles, tab title sizes and your own CSS for the start page.</li>
+          <li>Your accent color on websites (selection, cursor, checkboxes, sliders), smooth scrolling, and a switch to stop site animations.</li>
           <li>Choose what opens when Aster starts.</li>
-          <li>A new automatic bug sweep tests every command, 96 layouts, every theme and 400 random settings changes, plus stress and leak tests and 300 deliberately broken settings files. 223 unit tests, 129 in-app checks and 7 speed benchmarks pass.</li>
+          <li>A new automatic bug sweep tests every command, 96 layouts, every theme and 400 random settings changes, plus stress and leak tests, 300 deliberately broken settings files and 300 rapid look changes while pages load. 224 unit tests and 134 in-app checks pass.</li>
           <li>Fixed: an error message from a refused setting stayed on screen after a good change.</li>
         </ul>
       </li>
@@ -303,18 +307,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap dl">
     <div>
       <h2>Download</h2>
-      <p class="sub">Aster 1.0 is free.</p>
-      <!-- When a release is ready: change the href to the release file's link and remove aria-disabled. -->
-      <a class="btn primary" href="#" aria-disabled="true">Download for Mac (coming soon)</a>
-      <p class="small">Requires macOS 14 Sonoma or later.</p>
+      <p class="sub">Aster 1.2 is free.</p>
+      <a class="btn primary" href="downloads/Aster-1.2-mac-apple-silicon.zip" download>Download for Mac (4 MB)</a>
+      <p class="small">For Macs with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs aren't supported yet.</p>
+      <p class="small">SHA-256: <code style="word-break:break-all">d8c45d7141f3de566db13ca0f234046f83b97142e277331093d3a2e4be5d9ff1</code></p>
     </div>
     <div class="card">
       <h3 style="margin-top:0">Opening Aster the first time</h3>
+      <p style="color:var(--muted);margin:0 0 8px">Aster isn't from the App Store and isn't notarized by Apple yet, so macOS asks you to confirm once.</p>
       <ol>
-        <li>Open the downloaded file and drag Aster to your Applications folder.</li>
-        <li>The first time, Control-click Aster and choose <b>Open</b>, then <b>Open</b> again. macOS asks this once for apps from outside the App Store.</li>
-        <li>That's it. Your settings live in <code>~/Library/Application Support/Aster</code>.</li>
+        <li>Open the downloaded zip file. Drag <b>Aster</b> into your <b>Applications</b> folder.</li>
+        <li>Double-click Aster. macOS says it can't check the app. Click <b>Done</b> (or <b>OK</b>).</li>
+        <li>Open <b>System Settings › Privacy &amp; Security</b>. Scroll down to the message about Aster and click <b>Open Anyway</b>, then enter your Mac password.</li>
+        <li>Click <b>Open</b> when asked again. From then on, Aster opens normally.</li>
       </ol>
+      <p class="small">On macOS 14 you can instead Control-click Aster in Applications, choose <b>Open</b>, then <b>Open</b> again. Your settings live in <code>~/Library/Application Support/Aster</code>.</p>
     </div>
   </div>
 </section>
